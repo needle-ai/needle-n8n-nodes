@@ -3,7 +3,7 @@ name: Build Needle n8n nodes
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build-needle-n8n-nodes:
