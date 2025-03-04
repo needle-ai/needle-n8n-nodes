@@ -1,0 +1,25 @@
+name: Release Needle n8n nodes
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-to-npmjs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Build needle-n8n-nodes
+        run: pnpm i && pnpm lint && pnpm build
+
+      - name: Publish needle-n8n-nodes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public
