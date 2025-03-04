@@ -15,7 +15,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.4.0
 
       - name: Build needle-n8n-nodes
         run: pnpm i && pnpm lint && pnpm build
