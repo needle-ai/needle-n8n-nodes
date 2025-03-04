@@ -1,46 +1,113 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# Needle AI Integration for n8n
 
-# n8n-nodes-starter
+This package provides n8n nodes to interact with [Needle AI](https://needle-ai.com) - a powerful AI-powered information discovery and automation platform that helps you find information in seconds across all your connected data sources.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+## Features
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+- **AI-Powered Search**: Find information across all your connected data with references
+- **Collection Management**: List, search, and add files to your Needle collections
+- **Semantic Search**: Perform powerful semantic searches across your documents
+- **Seamless Integration**: Easily connect Needle AI with your n8n workflows
 
-## Prerequisites
+### In Your Own n8n Instance
 
-You need the following installed on your development machine:
+```bash
+# Navigate to your n8n custom extension directory (usually ~/.n8n/custom/)
+cd ~/.n8n/custom/
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 18. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  pnpm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+# Install using npm, yarn, or pnpm
+npm install @needle-ai/needle-n8n-nodes
+# or
+yarn add @needle-ai/needle-n8n-nodes
+# or
+pnpm add @needle-ai/needle-n8n-nodes
+```
 
-## Using this starter
+## Usage
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+After installation, you can find the Needle node in the node panel by searching for "Needle".
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `pnpm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `pnpm lint` to check for errors or `pnpm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+### Authentication
 
-## More information
+To use the Needle node, you'll need to create credentials:
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+1. Get your API key from the [Needle AI Dashboard](https://app.needle-ai.com)
+2. In n8n, create a new credential of type "Needle API"
+3. Enter your API key in the credential form
+
+### Available Operations
+
+The Needle node supports the following operations:
+
+#### Collection Resource
+
+- **List**: Get a list of all your collections
+- **Search**: Search within a specific collection using natural language
+- **Add Files**: Add files to a collection
+
+## Examples
+
+### Search a Collection and Process Results
+
+1. Add a Needle node to your workflow
+2. Select "Collection" as the resource
+3. Select "Search" as the operation
+4. Enter your Collection ID
+5. Provide a search prompt (e.g., "Find information about quarterly reports")
+6. Connect the output to other nodes to process the search results
+
+### Upload Files to a Collection
+
+1. Add a Needle node to your workflow
+2. Select "Collection" as the resource
+3. Select "Add Files" as the operation
+4. Enter your Collection ID
+5. Add file information (name and URL)
+6. Connect the output to see the upload results
+
+### Real-World Use Cases
+
+#### Automated Support Workflow
+
+1. A new support ticket arrives
+2. n8n captures the customer's question
+3. Your workflow automatically adds or updates relevant documentation in Needle
+4. Needle searches your knowledge base for the perfect answer
+5. The information passes through an AI service for refinement
+6. A comprehensive response gets delivered to your support system, Slack, or email
+
+#### Other Applications
+
+- **Streamline Onboarding**: Help new hires find information without flooding Slack with questions
+- **Enhance Support**: Automatically search documentation for every new ticket
+- **Empower Sales**: Give your team instant access to the latest decks and pricing information
+
+## About Needle AI
+
+Needle is your Knowledge Threading™ platform for work that helps you:
+
+- **Save time**: According to McKinsey, employees spend 1.8 hours every day searching for information. Needle eliminates this waste.
+- **Connect your data**: Quickly connect data sources like Google Drive, Dropbox, Confluence, and more.
+- **Get answers instantly**: Say goodbye to communication bottlenecks and information silos.
+- **Build AI agents**: Create powerful AI agents that interact with your data and automate sophisticated tasks.
+
+With 10+ native integrations supported and enterprise-ready features, Needle helps you focus on what matters most.
+
+## Troubleshooting
+
+- **Error: Could not get parameter**: Make sure all required fields are filled out correctly
+- **API Key is required**: Ensure your credentials are properly configured
+- **At least one file is required**: When using "Add Files" operation, you must provide at least one file
+
+## Support
+
+For questions or issues with the node itself, please [open an issue](https://github.com/needle-ai/n8n-nodes-needle/issues).
+For questions related to the Needle AI platform, please contact [support@needle-ai.com](mailto:support@needle-ai.com).
+
+## Learn More
+
+Check out our [blog post](https://blog.needle-ai.com/p/n8n-x-needle-supercharge-your-workflows) about the n8n integration to learn more about how Needle and n8n work together to supercharge your workflows.
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+This project is licensed under the MIT License - see the LICENSE.md file for details.

@@ -1,9 +1,18 @@
 {
 	"name": "@needle-ai/needle-n8n-nodes",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Needle AI n8n nodes",
 	"keywords": [
-		"n8n-community-node-package"
+		"n8n-community-node-package",
+		"needle",
+		"ai",
+		"ai-search",
+		"embeddings",
+		"vector-search",
+		"semantic-search",
+		"document-search",
+		"collection-management",
+		"n8n"
 	],
 	"license": "MIT",
 	"homepage": "",
