@@ -22,4 +22,4 @@ jobs:
       - name: Publish needle-n8n-nodes
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm publish --access public
+        run: pnpm publish --access public --no-git-checks
