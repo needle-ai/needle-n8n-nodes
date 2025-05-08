@@ -9,19 +9,38 @@ This package provides n8n nodes to interact with [Needle AI](https://needle-ai.c
 - **Semantic Search**: Perform powerful semantic searches across your documents
 - **Seamless Integration**: Easily connect Needle AI with your n8n workflows
 
-### In Your Own n8n Instance
+## Installation
 
-```bash
-# Navigate to your n8n custom extension directory (usually ~/.n8n/custom/)
-cd ~/.n8n/custom/
+This package requires pnpm as the package manager. Follow these steps to install the Needle AI n8n nodes:
 
-# Install using npm, yarn, or pnpm
-npm install @needle-ai/needle-n8n-nodes
-# or
-yarn add @needle-ai/needle-n8n-nodes
-# or
-pnpm add @needle-ai/needle-n8n-nodes
-```
+1. If you haven't installed pnpm yet, install it globally:
+   ```bash
+   npm install -g pnpm
+   ```
+
+2. Navigate to your n8n custom nodes directory:
+   ```bash
+   cd ~/.n8n/custom/
+   ```
+
+3. Install the package using pnpm:
+   ```bash
+   pnpm add @needle-ai/needle-n8n-nodes
+   ```
+
+4. Start n8n to load the new nodes:
+   ```bash
+   n8n start
+   ```
+
+### Troubleshooting
+
+If you encounter installation issues:
+
+1. Make sure you're using pnpm (this package requires pnpm)
+2. Ensure you have the correct Node.js version (n8n requires Node.js 16 or later)
+3. Check if you have the necessary permissions in the custom nodes directory
+4. If you see any build script warnings, you can safely ignore them as they don't affect functionality
 
 ## Usage
 
@@ -111,3 +130,11 @@ Check out our [blog post](https://blog.needle-ai.com/p/n8n-x-needle-supercharge-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## Screenshots
+
+### n8n Login Screen
+![n8n Login Screen](images/login-screen.png)
+
+### Example Needle Workflow in n8n
+![Needle Workflow Example](images/needle-workflow.png)
